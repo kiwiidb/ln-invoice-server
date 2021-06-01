@@ -1,0 +1,8 @@
+{
+    "build": {
+      "env": {
+        "GO_BUILD_FLAGS": "-a -ldflags '-linkmode external -extldflags \"-static\"'"
+      }
+    }
+  }
+  
