@@ -1,0 +1,9 @@
+{
+    "build": {
+      "env": {
+        "GO_BUILD_FLAGS": "-ldflags '-linkmode external'",
+        "CGO_ENABLED": "1"
+      }
+    }
+  }
+  
