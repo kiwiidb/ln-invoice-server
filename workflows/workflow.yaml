@@ -2,8 +2,6 @@ name: Build Golang
 on: push
 jobs:
     build:
-        env:
-          USERNAME: kiwiidb
         strategy:
           matrix:
             go-version: [ 1.13.x ]
