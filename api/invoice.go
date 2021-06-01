@@ -15,7 +15,7 @@ import (
 
 func startTorAndGetDialer() (dialer *tor.Dialer, err error) {
 	// Start tor with default config (can set start conf's DebugWriter to os.Stdout for debug logs)
-	fmt.Println("Starting tor and fetching title of https://check.torproject.org, please wait a few seconds...")
+	fmt.Println("Starting tor")
 	t, err := tor.Start(nil, &tor.StartConf{ProcessCreator: libtor.Creator, DebugWriter: os.Stderr})
 	if err != nil {
 		return nil, err
