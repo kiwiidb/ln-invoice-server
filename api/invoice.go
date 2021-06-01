@@ -1,26 +1,20 @@
-package main
+package handler
 
 import (
-	"bytes"
 	"context"
 	"crypto/tls"
 	"fmt"
 	"io/ioutil"
-	"log"
 	"net/http"
 	"os"
-	"strings"
 	"time"
 
 	"github.com/cretz/bine/tor"
 	"github.com/ipsn/go-libtor"
-	"golang.org/x/net/html"
 )
 
-func main() {
-	if err := run(); err != nil {
-		log.Fatal(err)
-	}
+func init() {
+
 }
 
 func run() error {
@@ -62,18 +56,6 @@ func run() error {
 	return nil
 }
 
-func getTitle(n *html.Node) string {
-	if n.Type == html.ElementNode && n.Data == "title" {
-		var title bytes.Buffer
-		if err := html.Render(&title, n.FirstChild); err != nil {
-			panic(err)
-		}
-		return strings.TrimSpace(title.String())
-	}
-	for c := n.FirstChild; c != nil; c = c.NextSibling {
-		if title := getTitle(c); title != "" {
-			return title
-		}
-	}
-	return ""
+func Handler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "<h1>Hello from Go!</h1>")
 }
